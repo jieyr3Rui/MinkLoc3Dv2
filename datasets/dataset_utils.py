@@ -30,9 +30,11 @@ def make_datasets(params: TrainingParams, validation: bool = True):
     # PNV datasets have their own transform
     train_transform = PNVTrainTransform(params.aug_mode)
     datasets['train'] = PNVTrainingDataset(params.dataset_folder, params.train_file,
-                                           transform=train_transform, set_transform=train_set_transform)
+                                           transform=train_transform)
     if validation:
-        datasets['val'] = PNVTrainingDataset(params.dataset_folder, params.val_file)
+        eval_transform = PNVTrainTransform(params.aug_mode)
+        datasets['val'] = PNVTrainingDataset(params.dataset_folder, params.val_file,
+                                             transform=eval_transform)
 
     return datasets
 

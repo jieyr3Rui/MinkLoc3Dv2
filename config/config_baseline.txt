@@ -1,11 +1,11 @@
 [DEFAULT]
-dataset_folder = /data3/pointnetvlad/benchmark_datasets
+dataset_folder = /nas/slam/datasets/GAPR/dataset/1210-1138
 
 [TRAIN]
 num_workers = 8
 batch_size = 2048
-batch_split_size = 128
-val_batch_size = 256
+batch_split_size = 32
+val_batch_size = 32
 
 lr = 1e-3
 epochs = 400
@@ -16,5 +16,5 @@ loss = TruncatedSmoothAP
 tau1 = 0.01
 positives_per_query = 4
 
-train_file = training_queries_baseline2.pickle
-val_file = test_queries_baseline2.pickle
+train_file = gapr_train.pickle
+val_file = gapr_evaluate.pickle

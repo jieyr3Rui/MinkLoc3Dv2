@@ -297,12 +297,11 @@ def do_train(params: TrainingParams):
             if rnz < params.batch_expansion_th:
                 dataloaders['train'].batch_sampler.expand_batch()
 
-    print('')
 
-    # Save final model weights
-    final_model_path = model_pathname + '_final.pth'
-    print(f"Saving weights: {final_model_path}")
-    torch.save(model.state_dict(), final_model_path)
+        # Save final model weights
+        final_model_path = model_pathname + '_final.pth'
+        print(f"Saving weights: {final_model_path}")
+        torch.save(model.state_dict(), final_model_path)
 
     # Evaluate the final
     # PointNetVLAD datasets evaluation protocol

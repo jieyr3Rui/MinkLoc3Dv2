@@ -15,8 +15,10 @@ class PNVPointCloudLoader(PointCloudLoader):
         # Reads the point cloud without pre-processing
         # Returns Nx3 ndarray
         file_path = os.path.join(file_pathname)
-        pc = np.fromfile(file_path, dtype=np.float64)
+        # pc = np.fromfile(file_path, dtype=np.float64)
+        # pc = np.float32(pc)
+        # # coords are within -1..1 range in each dimension
+        # pc = np.reshape(pc, (pc.shape[0] // 3, 3))
+        pc = np.load(file_pathname)
         pc = np.float32(pc)
-        # coords are within -1..1 range in each dimension
-        pc = np.reshape(pc, (pc.shape[0] // 3, 3))
         return pc

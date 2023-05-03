@@ -9,7 +9,7 @@ block=ECABasicBlock
 pooling=GeM
 
 coordinates=cartesian
-quantization_step=0.01
+quantization_step=0.6
 
 normalize_embeddings=False
 
